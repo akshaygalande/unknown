@@ -1,0 +1,121 @@
+#Q.1) Create two strings & display the number words present in string1 & string2.
+library("stringi")
+text1 = "helleveryone"
+text2="good afternoon"
+stri_count_words(c(text1,text2))
+stri_count_words(text2)
+
+#Q.2) create a string which consist of duplicate values apply str_duplicated()
+txt3 = c("aaa","bbb","aaa","ccc")
+stri_duplicated(txt3)
+
+
+stri_rand_strings()
+
+stri_rand_shuffle(c("abcd","werw","fsdfsdf","fgfdg"))
+
+#Q.3) create two strings & extract words from it.
+s1 = "this is R priogramming. we are studying R programming"
+stri_extract_all_words(s1,simplify = TRUE,omit_no_match = TRUE,locale = FALSE)
+
+#Q.4) create a character vector that consist names of scientist. display number of characters present in each character string in vector 
+#     also display duplicate names.
+scientists = c("Albert Aienstien","newton","cv raman","thomas elva edison","pythagoras","Euclid")
+stri_count_words(scientists)
+stri_length(scientists)
+stri_duplicated(scientists)
+
+# Q.5) Create a string & seter,imne starting & end index of first word & last WORD.
+s2 = c("abcd","pqrst","xyzw","qwer")
+stri_locate_first_words(s2)
+
+# Q.6) Create a string for e.g. "Students must study regularly" replace "must" with "don't".
+s3 = "Student must study regularly"
+s3
+stri_replace_all_fixed(s3,"must","don't")
+
+
+##################################################################################OUTPUT##########################################################################
+ stri_count_words(text1)
+[1] 1
+> stri_count_words(text2)
+[1] 2
+> stri_count_words(c(text1,text2))
+[1] 1 2
+> txt3 = "good afternoon and good to see you again"
+> stri_duplicated(txt3)
+[1] FALSE
+> stri_duplicated(txt3)
+[1] FALSE
+> txt3 = "good afternoon and good to see you in afternoon"
+> stri_duplicated(txt3)
+[1] FALSE
+> stri_duplicated(txt3)
+[1] FALSE
+> txt3 = c("aaa","bbb","aaa","ccc")
+> stri_duplicated(txt3)
+[1] FALSE FALSE  TRUE FALSE
+ stri_rand_shuffle("abcd")
+[1] "bcad"
+> stri_rand_shuffle(c("abcd","werw","fsdfsdf","fgfdg"))
+[1] "abdc"    "wewr"    "sffdfsd" "fgdfg"  
+> s1 = "this is R priogramming. we are studying R programming"
+> stri_extract_all_words(s1)
+[[1]]
+[1] "this"         "is"           "R"            "priogramming" "we"           "are"          "studying"    
+[8] "R"            "programming" 
+
+> stri_extract_all_words(s1,simplify = FALSE,omit_no_match = FALSE,locale = FALSE)
+[[1]]
+[1] "this"         "is"           "R"            "priogramming" "we"           "are"          "studying"    
+[8] "R"            "programming" 
+
+> stri_extract_all_words(s1,simplify = TRUE,omit_no_match = TRUE,locale = FALSE)
+     [,1]   [,2] [,3] [,4]           [,5] [,6]  [,7]       [,8] [,9]         
+[1,] "this" "is" "R"  "priogramming" "we" "are" "studying" "R"  "programming"
+> scientists = c("Albert Aienstien","newton","cv raman","thomas elva edison","pythagoras","Euclid")
+> stri_count_words(scientists)
+[1] 2 1 2 3 1 1
+> stri_duplicated(scientists)
+[1] FALSE FALSE FALSE FALSE FALSE FALSE
+> stri_locate_first_words(scientists)
+     start end
+[1,]     1   6
+[2,]     1   6
+[3,]     1   2
+[4,]     1   6
+[5,]     1  10
+[6,]     1   6
+> s2 = c("abcd","pqrst","xyzw","qwer")
+> stri_locate_first_words(s2)
+     start end
+[1,]     1   4
+[2,]     1   5
+[3,]     1   4
+[4,]     1   4
+> stri_count_words(scientists)
+[1] 2 1 2 3 1 1
+> stri_length(scientists)
+[1] 16  6  8 18 10  6
+> stri_duplicated(scientists)
+[1] FALSE FALSE FALSE FALSE FALSE FALSE
+> stri_locate_first_words(s2)
+     start end
+[1,]     1   4
+[2,]     1   5
+[3,]     1   4
+[4,]     1   4
+> s3 = "Student must study regularly"
+> stri_replace(s3,"must","don't")
+Error in stri_replace_first(str, replacement, ..., regex = regex, fixed = fixed,  : 
+  you have to specify either `regex`, `fixed`, `coll`, or `charclass`
+> s3 = "Student must study regularly"
+> stri_replace_all_fixed(s3,"must","don't")
+[1] "Student don't study regularly"
+> s3 = "Student must study regularly"
+> s3
+[1] "Student must study regularly"
+> stri_replace_all_fixed(s3,"must","don't")
+[1] "Student don't study regularly"
+
+

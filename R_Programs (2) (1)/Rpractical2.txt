@@ -1,0 +1,98 @@
+Q.1)View(Orange)
+tree_yes=Orange$Tree
+tree_yees
+age = Orange$age
+age
+cir = Orange$circumference
+cir
+save(tree_yes,cir,file = "trees.rda")
+load(file = "trees.rda")
+
+rm(tree_yes,age,cir)
+
+load(file = "trees.rda")
+
+Q.2) Create a integer vector which consist of 5 values, create 2nd vector which consist of 3 integer values and display addition of these two vectors.
+     length of these two vectors should not be same.
+> v1 = c(1,2,3,4,5)
+> v2 = c(1,2,3)
+> v3 = v1+v2
+Warning message:
+In v1 + v2 :
+  longer object length is not a multiple of shorter object length
+> v3
+[1] 2 4 6 5 7
+> v1 = c(3,4,5)
+> v2 = c(1,2,3,4,5,6)
+> v3 = v1+v2
+> v3
+[1]  4  6  8  7  9 11
+> v1 = c(3,4,5)
+> v2 = c(1,2,3,4,5,6)
+> v3 = v1-v2
+> v3
+[1]  2  2  2 -1 -1 -1
+> v1 = c(3,4,5)
+> v2 = c(1,2,3,4,5,6)
+> v3 = v1*v2
+> v3
+[1]  3  8 15 12 20 30
+
+
+Q.3) Consider air passenger's dataset. fetch 1st 2 columns and display.
+a. Fetch AirPassenger's data >= 1949. use square bracs
+
+
+Q.4) Convert AirPassengers data into matrix. & assigns names to the rows and columns.
+> AirPassMatrix = matrix(c(AirPassengers),12,12)
+> rownames(AirPassMatrix)=c(1949:1960)
+> colnames(AirPassMatrix)=c(month.abb)
+> AirPassMatrix
+     Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec
+1949 112 115 145 171 196 204 242 284 315 340 360 417
+1950 118 126 150 180 196 188 233 277 301 318 342 391
+1951 132 141 178 193 236 235 267 317 356 362 406 419
+
+Q.5)considre two vectors, which consisit of integer values. display output of first vector less than equal to second vector, use rbind() on both the vectors, 
+    also use dim() & length() & lenth() separately on both the vectors.
+	> i1 = c(1:10)
+> i2 = c(11:20)
+> decision = c(i1 <= i2)
+> decision
+ [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+> i3=rbind(i1)
+> i4=rbind(i2)
+> i3
+   [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
+i1    1    2    3    4    5    6    7    8    9    10
+> i4
+   [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
+i2   11   12   13   14   15   16   17   18   19    20
+> dim1=dim(i1)
+> dim2=dim(i2)
+> dim1
+NULL
+> dim2
+NULL
+
+Q.6) 	Assume that u have regestered height and weight for 5 peoples.
+	height in centimeter -> 151,180,165,190,193
+	wight in Kg-> 60,86,58,65,100
+	create two vectors heighth & weight with given data. the BMI is define as weight in Kg/(height in m)^2
+	create a vector with BMI values of 5 peoples, finally create a vector with the weights for those peoples who have BMI larger than 25.
+
+height = c(151,180,165,190,193)
+weight = c(60,86,58,65,100)
+heightin_meter = c(height/100)
+bmi = c(weight/(heightin_meter)**2)
+bmi_mat = matrix(bmi,byrow=TRUE)
+rownames(bmi_mat)=c(weight)
+rownames(bmi)=c(weight)
+bmi
+
+
+Q.7)	Asssume you have five observations of temperature. 23c, 27, 19, 24, 21c. create a vector with these values. create a new vector with a temperatures ijn fahrenhight.
+	formula= degrees in celcius -9/5+32  
+
+Q.8)	Assume you have heght& radius of 6 cones. create vectors for radius(2.27, 1.98, 1.69, 1.88, 1.64, 2.14), hieght(8.28,8.04,9.06,8.70,7.58,8.34). volume of cone = 1/3*pi<r^2*h.
+	create a vector with volumes of 6 cones.

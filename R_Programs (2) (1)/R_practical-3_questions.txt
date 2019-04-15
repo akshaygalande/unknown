@@ -1,0 +1,117 @@
+Q.1) Create a dataframe with columns player & score that having values 'NA'. & try the following functions on it.
+  player=c("abc","xyz","pqr","ntr","sad")
+> score=c(NA,34,45,65,NA)
+> df = data.frame(player,score)
+> df
+  player score
+1    abc    NA
+2    xyz    34
+3    pqr    45
+4    ntr    65
+5    sad    NA
+> is.NA(df)
+Error in is.NA(df) : could not find function "is.NA"
+> is.na(df)
+     player score
+[1,]  FALSE  TRUE
+[2,]  FALSE FALSE
+[3,]  FALSE FALSE
+[4,]  FALSE FALSE
+[5,]  FALSE  TRUE
+> table(is.na(df))
+
+df[!complete.cases(df),]
+  player score
+1    abc    NA
+5    sad    NA
+
+FALSE  TRUE 
+    8     2 
+ mean(df$score,na.rm=TRUE)
+[1] 48
+
+newdf=na.omit(df)
+> newdf
+  player score
+2    xyz    34
+3    pqr    45
+4    ntr    65
+
+
+Q.2) Consider a vector [1:k] where 'k' is a positive integer. display how many integers in the vector are exactly divisible by 3.
+ intvector = c(2,3,6,7,12,34,94)
+> intvector = c(1:23)
+> intvector
+ [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23
+factor = function(vect)
++ {
++     for(i in vect)
++     {
++         if(i%%3==0)
++         {
++             print(i)
++         }
++     } 
++ }
+> factor(intvector)
+[1] 3
+[1] 6
+[1] 9
+[1] 12
+[1] 15
+[1] 18
+[1] 21
+
+
+Q.3) consider a vector having 6 values, out of which 2 values are 'NA'
+  i) display length of vector.
+> v
+[1]  1 NA  9  2  3 NA
+> length(v)
+[1] 6
+  ii) remove all occurences of 'NA' in the vector.
+ v1 = na.omit(v)
+> v1
+[1] 1 9 2 3
+attr(,"na.action")
+[1] 2 6
+attr(,"class")
+[1] "omit"
+  iii) replace all occurences of 'NA' with an integer value
+	count=c(1:6)
+	replace = function(v,intvector)
+	{
+  	for(i in count)
+	{
+    	  if(v[i] == NA)
+          {
+            v[i]<-intvector[i]
+          }
+        }
+       }
+  iv)  write a code that will return TRUE if it has missing values.
+
+Q.4) consider a vector which has 10 integer values out of which 3 are missaing values, caluculate sum of the vector.
+v2 = c(5,32,NA,34,NA,11,NA,16,12,1)
+> sum(v2,na.rm=TRUE)
+[1] 111
+
+Q.5) consider a dataframe with names,sales & price. write a code that will return dataframe which removes all rows with missing values under names columns.
+
+Q.6) Load Orange dataset, replace all values of age 118 to 'NA'.
+
+Q.7) Consider dataset VADeaths. check wheather an object is dataframe or not. if object is not a dataframe convert it into a dataframe.
+     create a new variable total which is sum of each row.
+
+Q.8) consider dataset Swiss. create a dataframe of only folowing rows:
+     1,2,3,10,11,12,13 and only variable examination, education, infant mortality.
+	i) infant mortality of SARINE is wrong is should be set to 'NA'.
+	ii) create a row that will be total sum of the columns & name it as total.
+
+Q.9) Use dataset MPCars save it in a variable.
+	i) Use logical operators to output only those rows of variable wher column mpg is between 15 & 20(excluding 15 & 20)
+	ii) Use logical operator to output only those rows of variable where column cyl = 6 & clumn am is not 0.
+	iii) Use logical operator to output column gear or car has the value 4.
+	iv) Use logical operator to putput only the even rows.
+	v) use  logical operator & change  every 4th element in the column in mpg to 0.
+	ii)

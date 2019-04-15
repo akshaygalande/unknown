@@ -1,0 +1,40 @@
+#Q.1) Consider 2*2 matrix that stores integer values. apply mean fun on their .
+m1 =matrix(c(1:10),2,2,byrow = TRUE)
+m1
+mean1= lapply(m1[1,], mean)
+mean2 =lapply(m1[2,],mean)
+print(mean1)
+print(mean2)
+lapply(m1, mean)  
+#Q.3) consider built-in dataset airquality, split this dataframe by month variable so that
+#     there are separate dataframe.
+airdata = data.frame(airquality)
+airdata
+split(airdata,as.factor(airdata$Month))
+# Q.4) consider a dataframe which has age of 10 patients drawn from 5 clinics using tapplay()
+#       find mean age of each clinic.
+clinicname = c("Clinic1","Clinic2","Clinic3","Clinic4","Clinic5")
+age1 = c(12,21,31,21,22,14,16,21,65,45)
+age2 = c(10,41,31,23,24,19,16,20,65,45)
+age3 = c(6,21,31,21,54,18,12,32,33,40)
+age4 = c(12,21,31,21,52,24,46,3,65,45)
+age5 = c(12,21,31,21,22,14,16,21,65,45)
+age = c(age1,age2,age3,age4,age5)
+clinic = data.frame(age,colnames(clinicname))
+clinic
+#Q.5) consider a list which has 1st element as integer vector, 2nd vector as 10 random numbers
+#     & 3rd element as 20 random numbers. use sapply() to compute mean.
+  
+#Q.6) Instsall XLSX package using dependency = TRUE. create workbook object, & name it as 
+#    iris assign it name sheet1. use addDataFrame function.  
+library("openxlsx")  
+wb1 <- createWorkbook()
+
+## Save workbook to working directory
+saveWorkbook(wb1, file = "ghj.xlsx", overwrite = TRUE)
+install.packages("rtools")
+## Set Workbook properties
+wb1 <- createWorkbook(creator = "aditya"
+                     , title = "My First Workbook"
+                     , subject = "sheet1"
+                     , category = "something")

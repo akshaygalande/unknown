@@ -1,0 +1,100 @@
+#example of grep()
+tvec = c("one single word","a sentence","three two one","hello hi")
+pat="one"
+grep(pat,tvec,value = TRUE)
+# "one single word" "three two one"
+grep(pat,tvec)
+#[1] 1 3
+
+#2) grepl(): same as of grep() but returns the logical output i.e. TRUE/FALSE
+grepl(pat,tvec)
+#[1]  TRUE FALSE  TRUE FALSE
+
+#3) regexpr(): It is used to find exact position of pattern in the text vector
+regexpr(pat,tvec)
+[1]  1 -1 11 -1
+attr(,"match.length")
+[1]  3 -1  3 -1
+attr(,"useBytes")
+[1] TRUE
+
+#4) gregexpr(): it is same as regexpr() but returns output in the form of list.
+gregexpr(pat,tvec)
+[[1]]
+[1] 1
+attr(,"match.length")
+[1] 3
+attr(,"useBytes")
+[1] TRUE
+
+[[2]]
+[1] -1
+attr(,"match.length")
+[1] -1
+attr(,"useBytes")
+[1] TRUE
+
+[[3]]
+[1] 11
+attr(,"match.length")
+[1] 3
+attr(,"useBytes")
+[1] TRUE
+
+[[4]]
+[1] -1
+attr(,"match.length")
+[1] -1
+attr(,"useBytes")
+[1] TRUE
+
+
+# regexec()
+regexec(pat,tvec)
+#[[1]]
+[1] 1
+attr(,"match.length")
+[1] 3
+attr(,"useBytes")
+[1] TRUE
+
+[[2]]
+[1] -1
+attr(,"match.length")
+[1] -1
+attr(,"useBytes")
+[1] TRUE
+
+[[3]]
+[1] 11
+attr(,"match.length")
+[1] 3
+attr(,"useBytes")
+[1] TRUE
+
+[[4]]
+[1] -1
+attr(,"match.length")
+[1] -1
+attr(,"useBytes")
+[1] TRUE
+
+#patern replacement functions
+#1. sub(): Replaces the first occurence of pattern in each element of text vector.
+str1 = c("The R foundation","For Statistical Computing","R is a Collaborative project")
+sub("R","RR",str1)
+#"The RR foundation"             "For Statistical Computing"     "RR is a Collaborative project"
+
+
+#2. gsub(): it replaces all occurences of pattern in each element in the text vector.
+str1 = c("The R foundation of R programming","R is used for Statistical Computing","R is a Collaborative project")
+gsub("R","RR",str1)
+# "The RR foundation of RR programming"  "RR is used for Statistical Computing" "RR is a Collaborative project"       
+ 
+#########################################################Questions########################################################
+# Q.1) Consider a string "My Roll number is 1234". extract digits from a string of characters.
+t1 = "My Roll number is 1234"
+t1
+library("stringr")
+roll = str_extract(t1,"[0-9]*")
+# Q.2) 

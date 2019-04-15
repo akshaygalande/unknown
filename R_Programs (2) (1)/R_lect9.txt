@@ -1,0 +1,67 @@
+compare to nchar sre_length deals with NA differently i.e. it preserves missing values just as NA instead of giving NA as length of 2.
+str_length converts factors to characters whereas nchar is not able to handle factors.
+
+ cstr = c("aditya","shivam","ninad","siddharth","dinesh","shrikar","leo")
+> sort(cstr,decreasing=FALSE)
+[1] "aditya"    "dinesh"    "leo"       "ninad"     "shivam"    "shrikar"   "siddharth"
+> cstr
+[1] "aditya"    "shivam"    "ninad"     "siddharth" "dinesh"    "shrikar"   "leo"      
+> sort(cstr,decreasing=TRUE)
+[1] "siddharth" "shrikar"   "shivam"    "ninad"     "leo"       "dinesh"    "aditya"   
+> order(cstr,decreasing=FALSE)
+[1] 1 5 7 3 2 6 4
+> str1 = "hard work always paid"
+> chartr("paid","pays",str1)
+[1] "hars work always pays"
+> str1
+[1] "hard work always paid"
+> chartr("paid","pays",str1)
+[1] "hars work always pays"
+
+str_c("I","am","studying","R")
+[1] "IamstudyingR"
+> str_c("I","am","studying","R",NULL,character(0))
+[1] "IamstudyingR"
+> paste("I","am","studying","R")
+[1] "I am studying R"
+> paste("I","am","studying","R",sep = "_")
+[1] "I_am_studying_R"
+> paste("I","am","studying","R",sep = "_",collapse=NULL)
+[1] "I_am_studying_R"
+> str_length(str1)
+[1] 21
+> str_length(str1)
+[1] 21
+> nchar(str1)
+[1] 21
+> text=c("one","two","three",NA)
+> str_length(text)
+[1]  3  3  5 NA
+> nchar(text)
+[1]  3  3  5 NA
+> fact = factor(c(1,1,1,1,2,2),labels=c("good","bad"))
+> nchar(fact)
+Error in nchar(fact) : 'nchar()' requires a character vector
+> )
+
+str_length(fact)
+[1] 4 4 4 4 3 3
+> str2 = "Good Afternoon"
+> str_sub(str2,1:3)
+[1] "Good Afternoon" "ood Afternoon"  "od Afternoon"  
+> str_sub(str2,1,5)
+[1] "Good "
+> str_sub(str2,1)
+[1] "Good Afternoon"
+> str_sub(str2,1,10)
+[1] "Good After"
+> str_sub(str2,start = 1,end = 5)
+[1] "Good "
+> str_sub(str2,start = -1,end=-2)
+[1] ""
+> str_sub(str2,start = -1,end=-10)
+[1] ""
+> str_sub(str2,start = -5,end=-1)
+[1] "rnoon"
+> str_sub(str2,seq_len(nchar(str2)))
+ [1] "Good Af

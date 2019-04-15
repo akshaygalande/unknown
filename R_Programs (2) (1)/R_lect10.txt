@@ -1,0 +1,39 @@
+Q.1) install "babynames" dataset find the vector length of baby names using "stringr" functions.
+
+Q.2) input a string & display it in reverse order.
+
+Q.3) input a string & check wheather it is a pallindrome or not.
+
+
+words=c("laughter","is","the","best","medicine")
+> str_dup(words,2)
+[1] "laughterlaughter" "isis"             "thethe"           "bestbest"         "medicinemedicine"
+> str_dup("hello",3)
+[1] "hellohellohello"
+> str_dup("hello",1:1)
+[1] "hello"
+> str_dup("hello",-2)
+[1] NA
+
+library("babynames")
+library("stringr")
+names=c(babynames[3])
+nchar(names)
+
+#examples of str_dup()
+str_dup("goodevening",1:3)
+words=c("laughter","is","the","best","medicine")
+str_dup(words,2)
+str_dup("hello",2)
+
+
+#examples of str_pad()
+#str_pad()
+str_pad("Hey Good Afternoon",width=12,side="both")
+
+
+#strsplit()
+strsplit("R programming","g")
+
+# Q.2)
+s1 = readline(prom

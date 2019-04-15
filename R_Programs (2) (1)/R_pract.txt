@@ -1,0 +1,77 @@
+#Q.1) Input a string which consist of spaces. remove spaces from it.
+library("stringr")
+txt = readline(prompt = "Enter a string with spaces")
+txt1 = str_replace_all(txt," ","")
+txt1
+
+# Q.2) consider a string vector which consist of key->value pair. extract string which are 
+#     available in the key->value pair.
+txtvec = c("name:aditya","age:22","college:MIT","city:pune")
+txtvec
+txtlist = list()
+for(tup in txtvec)
+{
+  temp.list(c(str_split(tup,":"))
+  txtlist.list <- c(txtlist,temp)
+}
+txtlist
+#Q.3) Create avariable name text which consist of " the current year is 2019". find digit & display it.
+#     verify if there is a digit in the string variable.
+#     i) Find all positions in the text where there is a digit.
+#     ii)create a variable pattern & implement to finding 1 digit & 1 uppercase alphanumeric character
+#       in a given text.
+#     iii) create a pattern that checks if there is a lower case character followed by 
+#         any character then by a digit in a given text.
+
+txt2 = "the current year is 2019"
+res = grepl("[0-9]*",txt2)
+if(res==TRUE)
+{
+  print("Given string consist numeric sequences")
+}else
+{
+  print("Given string doesen't consist any numeric sequences")
+}
+res = gregexpr("[0-9]*",txt2)  
+res
+pattern = "[0-9]{1}[0-9A-Z]{1}"
+txt3 = "Today's date is 12March 2019"
+gregexpr(pattern,txt3)
+
+#Q.4) Find the following pattern one space followed by two lowercase letters & one more space
+#     use a function that returns starting point of start string & place its result in a variable.
+
+
+#Q.5) Consider the following 
+      #states = rownames(USArrests)
+      #count the number of charcters that each elements of the object States has & save it in the object called count.
+      #using the object "count" find the position of the elements in the object states that has the most amount of characters. 
+      #& obtain the state or states with the most amount of characters.
+      #obtain the position of the states that have in their name "New".
+States = rownames(USArrests)
+count = nchar(States)
+count
+max = count[1]
+max
+maxstate = State[1]
+for(c in count)
+{
+  if(c>max)
+  {
+    max <- c
+  }
+}
+max
+pos = as.integer(1)
+maxelement = ""
+for(e in States)
+{
+  if(nchar(e)==max)
+  {
+    maxelement <- e
+    break
+  }
+  pos <- pos+1
+}
+ans = c("State with Maximum character length is ",maxelement,pos)
+print(ans)

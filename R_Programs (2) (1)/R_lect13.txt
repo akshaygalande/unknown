@@ -1,0 +1,55 @@
+Q.1) Consider the string "" & match the 'a' exactly once.
+     i)Consider the same string match 'a' one or more times.
+     ii)match 'a' exactly twice
+
+#Metacharacter: 
+sub("\\$"," ","$Hello")
+sub("\\.","","Hello.Everyone")
+sub("\\+","","Hello+Everyone")
+sub("\\^","","Hello^Everyone")
+sub("\\|","@","Hello|Everyone")
+sub("\\(","","(Hello|Everyone)")
+sub("\\[","","[Hello|Everyone]")
+sub("\\{","","{Hello|Everyone}")
+#> sub("\\$"," ","$Hello")
+#[1] " Hello"
+#> sub("\\.","","Hello.Everyone")
+#[1] "HelloEveryone"
+#> sub("\\+","","Hello+Everyone")
+#[1] "HelloEveryone"
+#> sub("\\^","","Hello^Everyone")
+#[1] "HelloEveryone"
+#> sub("\\|","@","Hello|Everyone")
+#[1] "Hello@Everyone
+#[1] "Hello|Everyone)"
+#> sub("\\[","","[Hello|Everyone]")
+#[1] "Hello|Everyone]"
+#> sub("\\{","","{Hello|Everyone}")
+#[1] "Hello|Everyone}"
+
+cities = c("Pune","Mumbai","Nashik","Nagar","Kolhapur")
+grep("a+",cities,value =  TRUE)
+
+#sequences
+sub("\\d","-","Car Bombing 2019")
+#"Car Bombing -019"
+sub("\\d","_","Car Bombing 2019")
+#"Car Bombing _019"
+sub("\\B","_","Car Bombing 2019")
+
+#character classes
+#Q.2 consider a character vector named as modes of transport. search for pattern "ei" in the mode of transoprt.
+transportmode = c("air","road","seaway","railway")
+regexpr("[ei]",transportmode)
+[1]  2 -1  2  3
+attr(,"match.length")
+[1]  1 -1  1  1
+attr(,"useBytes")
+[1] TRUE
+regexpr("[ei]","regiular expression")
+[1] 2
+attr(,"match.length")
+[1] 1
+attr(,"useBytes")
+[1] TRUE
+> 

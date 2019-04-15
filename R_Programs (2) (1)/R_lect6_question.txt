@@ -1,0 +1,10 @@
+Q.1) Display wheather a number is even or odd.
+a = as.integer(readline(prompt = "Enter a Number: "))
+ifelse(a%%2==0,"Even","Odd")
+  
+Q.2) Display wheather a character is a consonant or a vowel.
+ print("Enter a character: ")
+ c = readline()
+ ifelse(c=="a" || c=="e" || c=="i" || c=="o" || c=="u","Charcter is a vowel","character is consonant")
+
+Q.3) Check wheather a number is an armstrong number or not for the range 1 to 500.

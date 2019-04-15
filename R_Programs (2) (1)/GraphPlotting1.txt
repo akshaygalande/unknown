@@ -1,0 +1,48 @@
+#SCatter plot example
+attach(mtcars)
+plot(wt,mpg,main="example of scatterplot",xlab = "car",ylab = "MIles per Gallon",pch = 19)
+  
+#scatter plot matrices
+pairs(~mpg+disp+drat+wt,data=mtcars, main="Simple Scatter plot matrix")
+
+#3D Scactter plot
+
+install.packages("scatterplot3d")
+install.packages("rgl")
+install.packages("plotrix")
+library("scatterplot3d")
+library("rgl")
+library("plotrix")
+scatterplot3d(wt,disp,mpg,main="3D scatter plot")
+
+#3d scatter plot wwith colors
+scatterplot3d(wt,disp,mpg,highlight.3d = TRUE,type="h",main="3D scatter plot")
+
+#3d plot using rgl
+plot3d(wt)
+?plot3d
+
+?scatterplot3d
+
+#plotting using pie chart
+pie(wt,labels= mpg,edges = 20, radius = 1, clockwise = FALSE, init.angle = 45)
+values = c(32,12,30,45)
+lab = c("Pizza","shwarma","Lays","pasta")
+pie(values,labels = lab)
+pie3D(values,labels = lab, explode = 0.1, main = "3D pie plot")
+
+#functions
+dt_frame <- data.frame(mtcars)
+dt_frame
+jpeg("pie plot1",width = 200, height = 100)
+plot(wt,mpg,main="pie chart")
+plot(mtcars)
+lines(lowess(mtcars))
+dev.off()
+
+#bar chart
+week_temp = c("20.1","19.80","24.09","23.23","27","24.42","20.31")
+days = c("mon","tue","wed","thus","fri","sat","sun")
+yaxes = c(20:30)
+barwid = c("1")
+barplot( height = yaxes,width = 1,week_temp,xlab = "Week Days",ylab = "Temperature in celcius" ,main = "BAr Chart for Temperature",names.arg =days, col = "#ff00")
